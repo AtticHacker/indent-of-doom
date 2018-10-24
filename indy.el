@@ -162,7 +162,7 @@ If 'indy-use-tab-cycle' is nil then use 'indent-for-tab-command.'"
 
 (defun indy--get-rule ()
   "Get the defined rules of the current major mode and the 'all' rules."
-  (let* ((filter-list (remove-if-not (lambda(x) (eval (car x))) (indy--rules))))
+  (let* ((filter-list (cl-remove-if-not (lambda(x) (eval (car x))) (indy--rules))))
     (car (last (car filter-list)))))
 
 (defun indy--escape-regexp (reg)
