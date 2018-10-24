@@ -222,19 +222,19 @@ Optional argument VALUES Values to compare with."
 (defun indy--ends-on (line values)
   "Check if LINE ends on one of the following strings.
 Argument VALUES Values to compare with."
-  (remove-if-not (lambda (x)
+  (cl-remove-if-not (lambda (x)
                    (string-match (concat (indy--escape-regexp x) "\s*$") line)) values))
 
 (defun indy--starts-with (line values)
   "Check if LINE start with one of the following strings.
 Argument VALUES Values to compare with."
-  (remove-if-not (lambda (x)
+  (cl-remove-if-not (lambda (x)
                    (string-match (concat "^\s*" (indy--escape-regexp x) ) line)) values))
 
 (defun indy--contains (line values)
   "Check if LINE has any of the following strings (regexp).
 Argument VALUES Values to compare with."
-  (remove-if-not (lambda (x) (string-match x line)) values))
+  (cl-remove-if-not (lambda (x) (string-match x line)) values))
 
 (defvar indy-mode-map (make-keymap) "Indy-mode keymap.")
 
